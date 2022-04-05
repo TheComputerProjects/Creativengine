@@ -7,8 +7,6 @@ Creativengine Engine
 
 ***
 
-> Creativengine Image Should be here
-
 # Documentation
 
 [Creativengine Documentation](https://google.com)
