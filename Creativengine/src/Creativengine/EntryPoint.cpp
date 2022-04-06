@@ -2,22 +2,6 @@
 
 namespace Creativengine {
 
-	static void GLClearError()
-	{
-		while (glGetError() != GL_NO_ERROR);
-	}
-
-	static bool GLLogCall()
-	{
-		while (GLenum error = glGetError())
-		{
-			Log::PrintLine("An OpenGL error occured!", MessageType::criticalError);
-
-			return false;
-		}
-		return true;
-	}
-
 	struct ShaderProgramSource
 	{
 		std::string VertexSource;
@@ -96,7 +80,7 @@ namespace Creativengine {
 		GLFWwindow* window;
 
 		if (!glfwInit()) {
-			Log::PrintLine("Error initializing GLFW!", MessageType::criticalError);
+			Log::PrintLine("Failed initializing GLFW!", MessageType::criticalError);
 
 		}
 
@@ -109,14 +93,12 @@ namespace Creativengine {
 		glfwMakeContextCurrent(window);
 
 		if (glewInit() != GLEW_OK) {
-			Log::PrintLine("Error initializing GLEW!", MessageType::criticalError);
+			Log::PrintLine("Failed initializing GLEW!", MessageType::criticalError);
 
 		}
 		else {
 			Log::PrintLine("Creativengine loaded successfully!", MessageType::success);
 		}
-
-
 
 		if (!window)
 		{
@@ -140,18 +122,12 @@ namespace Creativengine {
 		GLCall(glGenVertexArrays(1, &vao));
 		GLCall(glBindVertexArray(vao));
 
-		unsigned int buffer;
-		GLCall(glGenBuffers(1, &buffer));
-		GLCall(glBindBuffer(GL_ARRAY_BUFFER, buffer));
-		GLCall(glBufferData(GL_ARRAY_BUFFER, 6 * 2 * sizeof(float), positions, GL_STATIC_DRAW));
+		VertexBuffer vb(positions, 4 * 2 * sizeof(float));
 
 		GLCall(glEnableVertexAttribArray(0));
 		GLCall(glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0));
 
-		unsigned int ibo;
-		glGenBuffers(1, &ibo);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * 2 * sizeof(unsigned int), indices, GL_STATIC_DRAW);
+		IndexBuffer ib(indices, 6);
 
 		ShaderProgramSource source = ParseShader("res/shaders/Basic.shader");
 		unsigned int shader = CreateShader(source.VertexSource, source.FragmentSource);
@@ -168,7 +144,8 @@ namespace Creativengine {
 
 			GLCall(glUniform4f(location, 1.0f, 1.0f, 0.5f, 1.0f));
 
-			GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo));
+			GLCall(glBindVertexArray(vao));
+			ib.Bind();
 
 			GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
 

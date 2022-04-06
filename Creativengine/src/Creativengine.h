@@ -9,6 +9,9 @@
 #include <sstream>
 
 #include "Creativengine/Logger/Log.h"
+#include "Creativengine/OpenGL/Renderer.h"
+#include "Creativengine/OpenGL/VertexBuffer.h"
+#include "Creativengine/OpenGL/IndexBuffer.h"
 //
 
 #ifdef CE_ENGINE
@@ -16,8 +19,3 @@
 #else
 #define CREATIVENGINE_API __declspec(dllimport)
 #endif
-
-#define ASSERT(x) if (!(x)) __debugbreak();
-#define GLCall(x) GLClearError();\
-	x;\
-	ASSERT(GLLogCall())
