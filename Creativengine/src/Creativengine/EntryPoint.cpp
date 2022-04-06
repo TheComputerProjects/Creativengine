@@ -2,6 +2,22 @@
 
 namespace Creativengine {
 
+	static void GLClearError()
+	{
+		while (glGetError() != GL_NO_ERROR);
+	}
+
+	static bool GLLogCall()
+	{
+		while (GLenum error = glGetError())
+		{
+			Log::PrintLine("An OpenGL error occured!", MessageType::criticalError);
+
+			return false;
+		}
+		return true;
+	}
+
 	struct ShaderProgramSource
 	{
 		std::string VertexSource;
@@ -63,7 +79,7 @@ namespace Creativengine {
 
 	static int CreateShader(const std::string& vertexShader, const std::string& fragmentShader)
 	{
-		unsigned int program = glCreateProgram();
+		GLCall(unsigned int program = glCreateProgram());
 		unsigned int vs = CompileShader(GL_VERTEX_SHADER, vertexShader);
 		unsigned int fs = CompileShader(GL_FRAGMENT_SHADER, fragmentShader);
 
@@ -117,12 +133,12 @@ namespace Creativengine {
 		};
 
 		unsigned int buffer;
-		glGenBuffers(1, &buffer);
-		glBindBuffer(GL_ARRAY_BUFFER, buffer);
-		glBufferData(GL_ARRAY_BUFFER, 6 * 2 * sizeof(float), positions, GL_STATIC_DRAW);
+		GLCall(glGenBuffers(1, &buffer));
+		GLCall(glBindBuffer(GL_ARRAY_BUFFER, buffer));
+		GLCall(glBufferData(GL_ARRAY_BUFFER, 6 * 2 * sizeof(float), positions, GL_STATIC_DRAW));
 
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
+		GLCall(glEnableVertexAttribArray(0));
+		GLCall(glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0));
 
 		unsigned int ibo;
 		glGenBuffers(1, &ibo);
@@ -133,19 +149,22 @@ namespace Creativengine {
 		unsigned int shader = CreateShader(source.VertexSource, source.FragmentSource);
 		glUseProgram(shader);
 
+		GLCall(int location = glGetUniformLocation(shader, "u_Color"));
+		GLCall(glUniform4f(location, 1.0f, 1.0f, 0.5f, 1.0f));
+
 		while (!glfwWindowShouldClose(window))
 		{
 			glClear(GL_COLOR_BUFFER_BIT);
 
-			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+			GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
 
-			glClearColor(0.0f, 0.2f, 0.4f, 1.0f);
+			GLCall(glClearColor(0.0f, 0.2f, 0.4f, 1.0f));
 
 			/* Swap front and back buffers */
-			glfwSwapBuffers(window);
+			GLCall(glfwSwapBuffers(window));
 
 			/* Poll for and process events */
-			glfwPollEvents();
+			GLCall(glfwPollEvents());
 
 			glfwSetFramebufferSizeCallback(window, [](GLFWwindow* window, int width, int height) {
 
