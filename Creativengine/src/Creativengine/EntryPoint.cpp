@@ -100,6 +100,10 @@ namespace Creativengine {
 
 		}
 
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);
+
 		window = glfwCreateWindow(1380, 800, "Creativengine", NULL, NULL);
 
 		glfwMakeContextCurrent(window);
@@ -132,6 +136,10 @@ namespace Creativengine {
 			2, 3, 0
 		};
 
+		unsigned int vao;
+		GLCall(glGenVertexArrays(1, &vao));
+		GLCall(glBindVertexArray(vao));
+
 		unsigned int buffer;
 		GLCall(glGenBuffers(1, &buffer));
 		GLCall(glBindBuffer(GL_ARRAY_BUFFER, buffer));
@@ -147,7 +155,7 @@ namespace Creativengine {
 
 		ShaderProgramSource source = ParseShader("res/shaders/Basic.shader");
 		unsigned int shader = CreateShader(source.VertexSource, source.FragmentSource);
-		glUseProgram(shader);
+		GLCall(glUseProgram(shader));
 
 		GLCall(int location = glGetUniformLocation(shader, "u_Color"));
 		GLCall(glUniform4f(location, 1.0f, 1.0f, 0.5f, 1.0f));
@@ -155,6 +163,12 @@ namespace Creativengine {
 		while (!glfwWindowShouldClose(window))
 		{
 			glClear(GL_COLOR_BUFFER_BIT);
+
+			GLCall(glUseProgram(shader));
+
+			GLCall(glUniform4f(location, 1.0f, 1.0f, 0.5f, 1.0f));
+
+			GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo));
 
 			GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
 
