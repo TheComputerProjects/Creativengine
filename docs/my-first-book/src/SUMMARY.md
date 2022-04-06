@@ -2,7 +2,7 @@
 
 # Getting Started
 
-- [Landing Page](./landing-page.md)
+- [Landing Page](./index.md)
 
 # How to Install
 
