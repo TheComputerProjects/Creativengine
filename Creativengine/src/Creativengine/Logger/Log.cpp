@@ -22,8 +22,8 @@ namespace Creativengine {
 		}
 		else if (type == MessageType::success)
 		{
-			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 0x00E);
-			std::cout << "[WARNING] " << message << std::endl;
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 0x009);
+			std::cout << "[SUCCESS] " << message << std::endl;
 
 		}
 		else if (type == MessageType::warning)

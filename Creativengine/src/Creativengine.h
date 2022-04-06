@@ -1,6 +1,7 @@
 #pragma once
 
 // Include Directories
+#include <GLFW/glfw3.h>
 #include "Creativengine/Logger/Log.h"
 //
 
