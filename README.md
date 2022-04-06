@@ -3,11 +3,9 @@
 Creativengine Engine
 > Be Creative
 
-![CreativengineLogo](https://github.com/TheComputerProjects/Creativengine/tree/main/.github/images/creativengine-logo.jpg)
+![CreativengineLogo](https://raw.githubusercontent.com/TheComputerProjects/Creativengine/main/.github/images/creativengine-logo.jpg)
 
 ***
-
-> Creativengine Image Should be here
 
 # Documentation
 
