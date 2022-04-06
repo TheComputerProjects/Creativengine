@@ -13,6 +13,8 @@ namespace Creativengine {
         if (!glfwInit())
             Creativengine::Log::PrintLine("Failed to Initialize GLFW!", MessageType::criticalError);
 
+        glewInit();
+
         /* Create a windowed mode window and its OpenGL context */
         window = glfwCreateWindow(1380, 800, "Creativengine", NULL, NULL);
         if (!window)
