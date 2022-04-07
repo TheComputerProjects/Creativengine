@@ -15,6 +15,7 @@
 #include "Creativengine/OpenGL/IndexBuffer.h"
 #include "Creativengine/OpenGL/VertexArray.h"
 #include "Creativengine/OpenGL/VertexBufferLayout.h"
+#include "Creativengine/OpenGL/Shader.h"
 //
 
 #ifdef CE_ENGINE

@@ -2,7 +2,7 @@
 
 namespace Creativengine {
 
-	struct ShaderProgramSource
+	/*struct ShaderProgramSource
 	{
 		std::string VertexSource;
 		std::string FragmentSource;
@@ -73,7 +73,7 @@ namespace Creativengine {
 		glValidateProgram(program);
 
 		return program;
-	}
+	}*/
 
 	void Run()
 	{
@@ -131,21 +131,17 @@ namespace Creativengine {
 
 		IndexBuffer ib(indices, 6);
 
-		ShaderProgramSource source = ParseShader("res/shaders/Basic.shader");
-		unsigned int shader = CreateShader(source.VertexSource, source.FragmentSource);
-		GLCall(glUseProgram(shader));
-
-		GLCall(int location = glGetUniformLocation(shader, "u_Color"));
-		GLCall(glUniform4f(location, 1.0f, 1.0f, 0.5f, 1.0f));
+		Shader shader("res/shaders/Basic.shader");
+		shader.Bind();
 
 		while (!glfwWindowShouldClose(window))
 		{
 			glClear(GL_COLOR_BUFFER_BIT);
 
-			GLCall(glUseProgram(shader));
+			shader.Bind();
 
-			GLCall(glUniform4f(location, 1.0f, 1.0f, 0.5f, 1.0f));
-
+			shader.SetUniform4f("u_Color", 1.0f, 1.0f, 0.5f, 1.0f);
+			
 			GLCall(glBindVertexArray(vao));
 			ib.Bind();
 			va.Bind();
@@ -166,8 +162,6 @@ namespace Creativengine {
 
 			});
 		}
-
-		glDeleteProgram(shader);
 
 		glfwTerminate();
 	}
