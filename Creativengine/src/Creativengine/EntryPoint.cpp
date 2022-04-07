@@ -77,9 +77,17 @@ namespace Creativengine {
 		shader.SetUniform1i("u_Texture", 0);
 		shader.SetUniformMat4f("u_MVP", mvp);
 
+		IMGUI_CHECKVERSION();
+		ImGui::CreateContext();
+		ImGuiIO& io = ImGui::GetIO();
+		ImGui_ImplGlfw_InitForOpenGL(window, true);
+		ImGui_ImplOpenGL3_Init("#version 130");
+
 		while (!glfwWindowShouldClose(window))
 		{
 			glClear(GL_COLOR_BUFFER_BIT);
+
+			ImGui_ImplGlfw_NewFrame();
 
 			shader.Bind();
 
@@ -93,10 +101,17 @@ namespace Creativengine {
 
 			GLCall(glClearColor(0.0f, 0.2f, 0.4f, 1.0f));
 
-			/* Swap front and back buffers */
+			ImGui_ImplOpenGL3_NewFrame();
+			ImGui_ImplGlfw_NewFrame();
+			ImGui::NewFrame();
+
+			ImGui::ShowDemoWindow();
+
+			ImGui::Render();
+			ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
 			GLCall(glfwSwapBuffers(window));
 
-			/* Poll for and process events */
 			GLCall(glfwPollEvents());
 
 			glfwSetFramebufferSizeCallback(window, [](GLFWwindow* window, int width, int height) {

@@ -5,6 +5,9 @@
 #include <GLFW/glfw3.h>
 #include <stb_image.h>
 #include <glm/gtc/matrix_transform.hpp>
+#include <ImGuiLibraries/imgui.h>
+#include <ImGuiLibraries/imgui_impl_glfw.h>
+#include <ImGuiLibraries/imgui_impl_opengl3.h>
 #include <iostream>
 #include <fstream>
 #include <string>
