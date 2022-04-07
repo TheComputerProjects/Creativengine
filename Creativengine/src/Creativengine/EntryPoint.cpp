@@ -122,10 +122,12 @@ namespace Creativengine {
 		GLCall(glGenVertexArrays(1, &vao));
 		GLCall(glBindVertexArray(vao));
 
+		VertexArray va;
 		VertexBuffer vb(positions, 4 * 2 * sizeof(float));
 
-		GLCall(glEnableVertexAttribArray(0));
-		GLCall(glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0));
+		VertexBufferLayout layout;
+		layout.Push<float>(2);
+		va.AddBuffer(vb, layout);
 
 		IndexBuffer ib(indices, 6);
 
@@ -146,6 +148,7 @@ namespace Creativengine {
 
 			GLCall(glBindVertexArray(vao));
 			ib.Bind();
+			va.Bind();
 
 			GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
 

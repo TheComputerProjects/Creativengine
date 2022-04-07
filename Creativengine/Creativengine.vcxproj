@@ -109,6 +109,7 @@
     <ClCompile Include="src\Creativengine\EntryPoint.cpp" />
     <ClCompile Include="src\Creativengine\OpenGL\IndexBuffer.cpp" />
     <ClCompile Include="src\Creativengine\OpenGL\Renderer.cpp" />
+    <ClCompile Include="src\Creativengine\OpenGL\VertexArray.cpp" />
     <ClCompile Include="src\Creativengine\OpenGL\VertexBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -117,7 +118,9 @@
     <ClInclude Include="src\Creativengine\EntryPoint.h" />
     <ClInclude Include="src\Creativengine\OpenGL\IndexBuffer.h" />
     <ClInclude Include="src\Creativengine\OpenGL\Renderer.h" />
+    <ClInclude Include="src\Creativengine\OpenGL\VertexArray.h" />
     <ClInclude Include="src\Creativengine\OpenGL\VertexBuffer.h" />
+    <ClInclude Include="src\Creativengine\OpenGL\VertexBufferLayout.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
