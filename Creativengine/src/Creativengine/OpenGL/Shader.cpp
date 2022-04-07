@@ -106,6 +106,11 @@ namespace Creativengine {
 	{
 		GLCall(glUniform4f(GetUniformLocaion(name), v0, v1, v2, v3));
 	}
+	
+	void Shader::SetUniformMat4f(const std::string& name, const glm::mat4& matrix)
+	{
+		GLCall(glUniformMatrix4fv(GetUniformLocaion(name), 1, GL_FALSE, &matrix[0][0]));
+	}
 
 	int Shader::GetUniformLocaion(const std::string& name)
 	{
