@@ -108,9 +108,6 @@
   <ItemGroup>
     <Image Include="res\textures\ExampleTexture.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Font Include="res\fonts\OpenSans.ttf" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

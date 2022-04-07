@@ -22,6 +22,7 @@
 #include "Creativengine/OpenGL/VertexBufferLayout.h"
 #include "Creativengine/OpenGL/Shader.h"
 #include "Creativengine/OpenGL/Texture.h"
+#include "Creativengine/ImGui/StyledImGui.h"
 //
 
 #ifdef CE_ENGINE

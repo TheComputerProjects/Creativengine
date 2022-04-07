@@ -83,6 +83,9 @@ namespace Creativengine {
 		ImGui_ImplGlfw_InitForOpenGL(window, true);
 		ImGui_ImplOpenGL3_Init("#version 130");
 
+		StyledImGui sig;
+		sig.AddStyle();
+
 		while (!glfwWindowShouldClose(window))
 		{
 			glClear(GL_COLOR_BUFFER_BIT);
@@ -106,7 +109,7 @@ namespace Creativengine {
 			ImGui::NewFrame();
 
 			ImGui::ShowDemoWindow();
-
+			
 			ImGui::Render();
 			ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
