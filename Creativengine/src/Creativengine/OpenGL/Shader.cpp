@@ -59,6 +59,7 @@ namespace Creativengine {
 			glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length);
 			char* message = (char*)alloca(length * sizeof(char));
 			glGetShaderInfoLog(id, length, &length, message);
+			Log::PrintLine(message, MessageType::error);
 			Log::PrintLine("Failed to compile shader!", MessageType::error);
 			glDeleteShader(id);
 			return 0;
@@ -91,16 +92,26 @@ namespace Creativengine {
 		GLCall(glUseProgram(0));
 	}
 
+	void Shader::SetUniform1i(const std::string& name, int value)
+	{
+		GLCall(glUniform1i(GetUniformLocaion(name), value));
+	}
+
+	void Shader::SetUniform1f(const std::string& name, float value)
+	{
+		GLCall(glUniform1f(GetUniformLocaion(name), value));
+	}
+
 	void Shader::SetUniform4f(const std::string& name, float v0, float v1, float v2, float v3)
 	{
 		GLCall(glUniform4f(GetUniformLocaion(name), v0, v1, v2, v3));
 	}
 
-	unsigned int Shader::GetUniformLocaion(const std::string& name)
+	int Shader::GetUniformLocaion(const std::string& name)
 	{
-		GLCall(unsigned int location = glGetUniformLocation(m_RenderID, name.c_str()));
-		if (location == -1)
-			Log::PrintLine("Uniform does not exist!", MessageType::error);
+		GLCall(int location = glGetUniformLocation(m_RenderID, name.c_str()));
+		/*if (location == -1)
+			Log::PrintLine("Uniform does not exist!", MessageType::error);*/
 
 		return location;
 	}

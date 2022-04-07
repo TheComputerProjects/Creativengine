@@ -23,6 +23,8 @@ namespace Creativengine {
 		void Unbind() const;
 
 		// Uniforms
+		void SetUniform1i(const std::string& name, int value);
+		void SetUniform1f(const std::string& name, float value);
 		void SetUniform4f(const std::string& name, float v0, float v1, float v2, float v3);
 
 	private:
@@ -30,7 +32,7 @@ namespace Creativengine {
 		unsigned int CompileShader(unsigned int type, const std::string& source);
 		unsigned int CreateShader(const std::string& vertexShader, const std::string& fragmentShader);
 
-		unsigned int GetUniformLocaion(const std::string& name);
+		int GetUniformLocaion(const std::string& name);
 	};
 
 }

@@ -57,7 +57,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>CE_ENGINE;GLEW_STATIC;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)Creativengine\src;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Creativengine\src;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\stb_image</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -72,7 +72,8 @@
       <Command>XCOPY "$(SolutionDir)bin\$(Platform)-$(Configuration)\Creativengine\Creativengine.dll" "$(SolutionDir)bin\$(Platform)-$(Configuration)\Game" /S /Y</Command>
     </PostBuildEvent>
     <PreLinkEvent>
-      <Command>XCOPY "$(SolutionDir)bin\$(Platform)-$(Configuration)\Creativengine\Creativengine.dll" "$(SolutionDir)bin\$(Platform)-$(Configuration)\Game" /S /Y</Command>
+      <Command>
+      </Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -84,7 +85,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>CE_ENGINE;GLEW_STATIC;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)Creativengine\src;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Creativengine\src;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\stb_image</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -101,7 +102,8 @@
       <Command>XCOPY "$(SolutionDir)bin\$(Platform)-$(Configuration)\Creativengine\Creativengine.dll" "$(SolutionDir)bin\$(Platform)-$(Configuration)\Game" /S /Y</Command>
     </PostBuildEvent>
     <PreLinkEvent>
-      <Command>XCOPY "$(SolutionDir)bin\$(Platform)-$(Configuration)\Creativengine\Creativengine.dll" "$(SolutionDir)bin\$(Platform)-$(Configuration)\Game" /S /Y</Command>
+      <Command>
+      </Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -110,6 +112,7 @@
     <ClCompile Include="src\Creativengine\OpenGL\IndexBuffer.cpp" />
     <ClCompile Include="src\Creativengine\OpenGL\Renderer.cpp" />
     <ClCompile Include="src\Creativengine\OpenGL\Shader.cpp" />
+    <ClCompile Include="src\Creativengine\OpenGL\Texture.cpp" />
     <ClCompile Include="src\Creativengine\OpenGL\VertexArray.cpp" />
     <ClCompile Include="src\Creativengine\OpenGL\VertexBuffer.cpp" />
   </ItemGroup>
@@ -120,6 +123,7 @@
     <ClInclude Include="src\Creativengine\OpenGL\IndexBuffer.h" />
     <ClInclude Include="src\Creativengine\OpenGL\Renderer.h" />
     <ClInclude Include="src\Creativengine\OpenGL\Shader.h" />
+    <ClInclude Include="src\Creativengine\OpenGL\Texture.h" />
     <ClInclude Include="src\Creativengine\OpenGL\VertexArray.h" />
     <ClInclude Include="src\Creativengine\OpenGL\VertexBuffer.h" />
     <ClInclude Include="src\Creativengine\OpenGL\VertexBufferLayout.h" />
