@@ -107,6 +107,7 @@
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Creativengine\ImGui\ImGuiDockspace.cpp" />
     <ClCompile Include="src\Creativengine\Logger\Log.cpp" />
     <ClCompile Include="src\Creativengine\EntryPoint.cpp" />
     <ClCompile Include="src\Creativengine\OpenGL\IndexBuffer.cpp" />
@@ -125,6 +126,7 @@
     <ClCompile Include="src\Creativengine\ImGui\StyledImGui.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Creativengine\ImGui\ImGuiDockspace.h" />
     <ClInclude Include="src\Creativengine\Logger\Log.h" />
     <ClInclude Include="src\Creativengine.h" />
     <ClInclude Include="src\Creativengine\EntryPoint.h" />

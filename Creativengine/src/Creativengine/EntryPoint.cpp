@@ -80,6 +80,7 @@ namespace Creativengine {
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO();
+		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 		ImGui_ImplGlfw_InitForOpenGL(window, true);
 		ImGui_ImplOpenGL3_Init("#version 130");
 
@@ -108,7 +109,13 @@ namespace Creativengine {
 			ImGui_ImplGlfw_NewFrame();
 			ImGui::NewFrame();
 
+			ImGuiDockspace imguidockspace;
+			imguidockspace.Init();
+
 			ImGui::ShowDemoWindow();
+
+			ImGui::Begin("Test Window");
+			ImGui::End();
 			
 			ImGui::Render();
 			ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

@@ -23,6 +23,7 @@
 #include "Creativengine/OpenGL/Shader.h"
 #include "Creativengine/OpenGL/Texture.h"
 #include "Creativengine/ImGui/StyledImGui.h"
+#include "Creativengine/ImGui/ImGuiDockspace.h"
 //
 
 #ifdef CE_ENGINE
