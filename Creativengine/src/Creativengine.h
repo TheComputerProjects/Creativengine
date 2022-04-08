@@ -24,6 +24,8 @@
 #include "Creativengine/OpenGL/Texture.h"
 #include "Creativengine/ImGui/StyledImGui.h"
 #include "Creativengine/ImGui/ImGuiDockspace.h"
+
+#include "Creativengine/ImGui/ImGuiPanels/WorldSettingsPanel.h"
 //
 
 #ifdef CE_ENGINE

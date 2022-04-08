@@ -124,6 +124,7 @@
     <ClCompile Include="src\ImGuiLibraries\imgui_tables.cpp" />
     <ClCompile Include="src\ImGuiLibraries\imgui_widgets.cpp" />
     <ClCompile Include="src\Creativengine\ImGui\StyledImGui.cpp" />
+    <ClCompile Include="src\Creativengine\ImGui\ImGuiPanels\WorldSettingsPanel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Creativengine\ImGui\ImGuiDockspace.h" />
@@ -147,6 +148,7 @@
     <ClInclude Include="src\ImGuiLibraries\imstb_textedit.h" />
     <ClInclude Include="src\ImGuiLibraries\imstb_truetype.h" />
     <ClInclude Include="src\Creativengine\ImGui\StyledImGui.h" />
+    <ClInclude Include="src\Creativengine\ImGui\ImGuiPanels\WorldSettingsPanel.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

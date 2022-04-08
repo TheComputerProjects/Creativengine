@@ -83,9 +83,16 @@ namespace Creativengine {
 		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 		ImGui_ImplGlfw_InitForOpenGL(window, true);
 		ImGui_ImplOpenGL3_Init("#version 130");
+		
+		ImVec4 skyColor = ImVec4(0.0f, 0.2f, 0.4f, 1.0f);
 
 		StyledImGui sig;
 		sig.AddStyle();
+
+		ImGuiDockspace imguidockspace;
+		
+		WorldSettingsPanel worldSettingsPanel(skyColor);
+		
 
 		while (!glfwWindowShouldClose(window))
 		{
@@ -103,20 +110,16 @@ namespace Creativengine {
 
 			GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
 
-			GLCall(glClearColor(0.0f, 0.2f, 0.4f, 1.0f));
+			//GLCall(glClearColor(skyColor.x * skyColor.w, skyColor.y * skyColor.w, skyColor.z * skyColor.w, skyColor.w));
 
 			ImGui_ImplOpenGL3_NewFrame();
 			ImGui_ImplGlfw_NewFrame();
 			ImGui::NewFrame();
 
-			ImGuiDockspace imguidockspace;
 			imguidockspace.Init();
 
-			ImGui::ShowDemoWindow();
+			worldSettingsPanel.Init();
 
-			ImGui::Begin("Test Window");
-			ImGui::End();
-			
 			ImGui::Render();
 			ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 

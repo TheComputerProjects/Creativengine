@@ -78,6 +78,9 @@
     <ClInclude Include="src\Creativengine\ImGui\ImGuiDockspace.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Creativengine\ImGui\ImGuiPanels\WorldSettingsPanel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Creativengine\EntryPoint.cpp">
@@ -129,6 +132,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Creativengine\ImGui\ImGuiDockspace.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Creativengine\ImGui\ImGuiPanels\WorldSettingsPanel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
