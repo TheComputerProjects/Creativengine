@@ -25,7 +25,11 @@
 #include "Creativengine/ImGui/StyledImGui.h"
 #include "Creativengine/ImGui/ImGuiDockspace.h"
 
+#include "Creativengine/ImGui/ImGuiPanels/AssetViewerPanel.h"
+#include "Creativengine/ImGui/ImGuiPanels/GameObjectsPanel.h"
+#include "Creativengine/ImGui/ImGuiPanels/PropertiesPanel.h"
 #include "Creativengine/ImGui/ImGuiPanels/WorldSettingsPanel.h"
+#include "Creativengine/ImGui/ImGuiPanels/ViewportPanel.h"
 //
 
 #ifdef CE_ENGINE

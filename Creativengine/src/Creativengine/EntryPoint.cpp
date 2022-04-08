@@ -91,6 +91,10 @@ namespace Creativengine {
 
 		ImGuiDockspace imguidockspace;
 		
+		AssetViewerPanel assetViewerPanel;
+		GameObjectsPanel gameObjectsPanel;
+		PropertiesPanel propertiesPanel;
+		//ViewportPanel viewportPanel;
 		WorldSettingsPanel worldSettingsPanel(skyColor);
 		
 
@@ -118,6 +122,10 @@ namespace Creativengine {
 
 			imguidockspace.Init();
 
+			assetViewerPanel.Init();
+			gameObjectsPanel.Init();
+			propertiesPanel.Init();
+			//viewportPanel.Init();
 			worldSettingsPanel.Init();
 
 			ImGui::Render();
@@ -126,10 +134,12 @@ namespace Creativengine {
 			GLCall(glfwSwapBuffers(window));
 
 			GLCall(glfwPollEvents());
+			
+			glViewport(0, 0, 1380 + 400, 800);
 
 			glfwSetFramebufferSizeCallback(window, [](GLFWwindow* window, int width, int height) {
 
-				glViewport(0, 0, width, height);
+				glViewport(0, 0, width + 400, height);
 
 			});
 		}

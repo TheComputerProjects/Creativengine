@@ -72,8 +72,7 @@
       <Command>XCOPY "$(SolutionDir)bin\$(Platform)-$(Configuration)\Creativengine\Creativengine.dll" "$(SolutionDir)bin\$(Platform)-$(Configuration)\Game" /S /Y</Command>
     </PostBuildEvent>
     <PreLinkEvent>
-      <Command>
-      </Command>
+      <Command>XCOPY "$(SolutionDir)bin\$(Platform)-$(Configuration)\Creativengine\Creativengine.dll" "$(SolutionDir)bin\$(Platform)-$(Configuration)\Game" /S /Y</Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -102,12 +101,15 @@
       <Command>XCOPY "$(SolutionDir)bin\$(Platform)-$(Configuration)\Creativengine\Creativengine.dll" "$(SolutionDir)bin\$(Platform)-$(Configuration)\Game" /S /Y</Command>
     </PostBuildEvent>
     <PreLinkEvent>
-      <Command>
-      </Command>
+      <Command>XCOPY "$(SolutionDir)bin\$(Platform)-$(Configuration)\Creativengine\Creativengine.dll" "$(SolutionDir)bin\$(Platform)-$(Configuration)\Game" /S /Y</Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Creativengine\ImGui\ImGuiDockspace.cpp" />
+    <ClCompile Include="src\Creativengine\ImGui\ImGuiPanels\AssetViewerPanel.cpp" />
+    <ClCompile Include="src\Creativengine\ImGui\ImGuiPanels\GameObjectsPanel.cpp" />
+    <ClCompile Include="src\Creativengine\ImGui\ImGuiPanels\PropertiesPanel.cpp" />
+    <ClCompile Include="src\Creativengine\ImGui\ImGuiPanels\ViewportPanel.cpp" />
     <ClCompile Include="src\Creativengine\Logger\Log.cpp" />
     <ClCompile Include="src\Creativengine\EntryPoint.cpp" />
     <ClCompile Include="src\Creativengine\OpenGL\IndexBuffer.cpp" />
@@ -128,6 +130,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Creativengine\ImGui\ImGuiDockspace.h" />
+    <ClInclude Include="src\Creativengine\ImGui\ImGuiPanels\AssetViewerPanel.h" />
+    <ClInclude Include="src\Creativengine\ImGui\ImGuiPanels\GameObjectsPanel.h" />
+    <ClInclude Include="src\Creativengine\ImGui\ImGuiPanels\PropertiesPanel.h" />
+    <ClInclude Include="src\Creativengine\ImGui\ImGuiPanels\ViewportPanel.h" />
     <ClInclude Include="src\Creativengine\Logger\Log.h" />
     <ClInclude Include="src\Creativengine.h" />
     <ClInclude Include="src\Creativengine\EntryPoint.h" />
