@@ -15,20 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\GameApp.cpp">
+    <ClCompile Include="src\SandboxApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="res\shaders\Basic.shader" />
-    <None Include="imgui.ini" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="res\textures\ExampleTexture.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="res\fonts\OpenSans.ttf" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,3 @@
-/.vs
-/.user
-/bin
-/bin-int
+.vs/
+bin/
+bin-int/
